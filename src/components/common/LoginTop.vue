@@ -1,22 +1,27 @@
 <template>
-    <div class="LoginTop">
-        <div>
-1
-        </div>
-        <div>2</div>
-        <div>3</div>
+  <div class="LoginTop">
+    <div></div>
+    <div>{{}}</div>
+    <div>
+      <slot name="loginReturn" />
     </div>
+  </div>
 </template>
 <script>
 export default {
-    name: 'LoginTop',
-}
+  name: "LoginTop",
+};
 </script>
 <style lang="less">
-.LoginTop{
-    height: 50px;
-    div{
-        flex: 1;
-    }
+.LoginTop {
+  height: 45px;
+  background-color: #fff;
+  display: flex;
+  div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 </style>
