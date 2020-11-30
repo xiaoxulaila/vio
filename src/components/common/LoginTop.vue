@@ -1,7 +1,7 @@
 <template>
   <div class="LoginTop">
     <div></div>
-    <div>{{}}</div>
+    <div>{{middleTop}}</div>
     <div>
       <slot name="loginReturn" />
     </div>
@@ -10,6 +10,7 @@
 <script>
 export default {
   name: "LoginTop",
+  props:['middleTop',]
 };
 </script>
 <style lang="less">
@@ -22,6 +23,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 4vw;
   }
 }
 </style>
