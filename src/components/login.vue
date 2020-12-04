@@ -1,12 +1,12 @@
 <template>
   <div id="register">
-    <login-top middleTop="注册vio">
+    <login-top middleTop="登录vio">
       <div
         class="loginReturn"
-        @click="$router.push('/login')"
+        @click="$router.push('/register')"
         slot="loginReturn"
       >
-        返回登录
+        返回注册
       </div>
     </login-top>
     <div class="loginInput">
@@ -15,18 +15,11 @@
         placeholder="请输入姓名"
         rule="^.{6,16}$"
         :autofocus="true"
-        @inputChange="(res) => (model.name = res)"
+        @inputChange="(res) => (model.username = res)"
       >
       </login-text>
     </div>
     <div class="loginInput">
-      <login-text
-        label="账号"
-        placeholder="请输入账号"
-        rule="^.{6,16}$"
-        @inputChange="(res) => (model.username = res)"
-      >
-      </login-text>
       <login-text
         label="密码"
         type="password"
@@ -37,7 +30,7 @@
       </login-text>
     </div>
     <div class="regLogBut" @click="registerSubmit">
-      <login-but loginBut="注册" />
+      <login-but loginBut="登录" />
     </div>
   </div>
 </template>
@@ -51,7 +44,6 @@ export default {
     return {
       //创建一个模型，一个存储数据的对象
       model: {
-        name: "",
         username: "",
         password: "",
       },
@@ -68,19 +60,15 @@ export default {
     },
     async registerSubmit() {
       let rulg = /^.{6,16}$/;
-      if (
-        rulg.test(this.model.name) &&
-        rulg.test(this.model.username) &&
-        rulg.test(this.model.password)
-      ) {
-        const res = await this.$http.post("/register", this.model);
+      if (rulg.test(this.model.username) && rulg.test(this.model.password)) {
+        const res = await this.$http.post("/login", this.model);
         let resMsg = res.data.msg;
         let resCode = res.data.code;
         if (resCode == 200) {
           this.$msg.success(resMsg);
           // const _that = this;
           setTimeout(() => {
-            this.$router.push("/login");
+            this.$router.push("/register");
           }, 1000);
         } else {
           this.$msg.fail(resMsg);

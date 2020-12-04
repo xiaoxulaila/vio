@@ -4,11 +4,11 @@ import Router from 'vue-router'
 // 导入页面文件
 import HelloWorld from './components/HelloWorld.vue'
 import register from './components/register.vue'
+import login from './components/login.vue'
 
 Vue.use(Router)
 const router = new Router({
-    routes: [
-        {
+    routes: [{
             path: '',
             redirect: "register"
         },
@@ -19,6 +19,10 @@ const router = new Router({
         {
             path: '/register',
             component: register
+        },
+        {
+            path: '/login',
+            component: login
         },
     ]
 })
