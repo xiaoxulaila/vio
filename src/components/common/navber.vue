@@ -1,7 +1,9 @@
 <template>
   <div id="navber">
     <div><img src="../../assets/logo.png" alt="" /></div>
-    <div>3</div>
+    <div>
+      <p><van-icon name="search" /></p>
+    </div>
     <div>
       <img src="../../assets/default_img.jpg" alt="" />
       <div>
@@ -31,6 +33,12 @@ export default {};
     flex: 1;
     display: flex;
     align-items: center;
+    padding: 0 3% 0 1%;
+    p {
+      background-color: #f4f4f4;
+      padding: 5px;
+      width: 100%;
+    }
   }
   div:nth-child(3) {
     display: flex;
@@ -53,6 +61,7 @@ export default {};
         text-align: center;
         color: #fff;
         margin: 4px 0px;
+        background-color: #ff9db5;
       }
     }
   }
