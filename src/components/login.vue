@@ -1,5 +1,5 @@
 <template>
-  <div id="register">
+  <div id="login">
     <login-top middleTop="登录vio">
       <div
         class="loginReturn"
@@ -55,9 +55,9 @@ export default {
     LoginBut,
   },
   methods: {
-    successTpt(contnet) {
-      console.log(contnet);
-    },
+    // successTpt(contnet) {
+    //   console.log(contnet);
+    // },
     async registerSubmit() {
       let rulg = /^.{6,16}$/;
       if (rulg.test(this.model.username) && rulg.test(this.model.password)) {
@@ -66,9 +66,8 @@ export default {
         let resCode = res.data.code;
         if (resCode == 200) {
           this.$msg.success(resMsg);
-          // const _that = this;
           setTimeout(() => {
-            this.$router.push("/register");
+            this.$router.push("/userinfo");
           }, 1000);
         } else {
           this.$msg.fail(resMsg);
@@ -81,7 +80,7 @@ export default {
 };
 </script>
 <style lang="less">
-#register {
+#login {
   .loginReturn {
     font-size: 3vw;
   }

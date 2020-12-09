@@ -22,6 +22,7 @@ export default {
     // 判断正则
     handlerulg() {
       // 正则效验
+      // RegExp 对象表示正则表达式
       const rue = new RegExp(this.rule);
       if (rue.test(this.content)) {
         this.$emit("inputChange", this.content);

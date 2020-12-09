@@ -63,9 +63,9 @@ export default {
     LoginBut,
   },
   methods: {
-    successTpt(contnet) {
-      console.log(contnet);
-    },
+    // successTpt(contnet) {
+    //   console.log(contnet);
+    // },
     async registerSubmit() {
       let rulg = /^.{6,16}$/;
       if (
@@ -80,7 +80,7 @@ export default {
           this.$msg.success(resMsg);
           // const _that = this;
           setTimeout(() => {
-            this.$router.push("/login");
+            this.$router.push("/userinfo");
           }, 1000);
         } else {
           this.$msg.fail(resMsg);
