@@ -2,7 +2,10 @@
   <div id="navber">
     <div><img src="../../assets/logo.png" alt="" /></div>
     <div>
-      <p><van-icon name="search" /></p>
+      <p>
+        <van-icon class="van-icon" name="search" />
+        <span>123</span>
+      </p>
     </div>
     <div>
       <img src="../../assets/default_img.jpg" alt="" />
@@ -36,8 +39,20 @@ export default {};
     padding: 0 3% 0 1%;
     p {
       background-color: #f4f4f4;
-      padding: 5px;
+      padding: 5px 5px 5px 5px;
+      height: 15px;
       width: 100%;
+      border-radius: 15px;
+      .van-icon {
+        padding: 0;
+        color: #aaa;
+        font-size: 4vw;
+      }
+      span{
+        font-size: 3.5vw;
+        position: absolute;
+        color: #aaa;
+      }
     }
   }
   div:nth-child(3) {
@@ -62,6 +77,7 @@ export default {};
         color: #fff;
         margin: 4px 0px;
         background-color: #ff9db5;
+        padding: 5px 5px;
       }
     }
   }
