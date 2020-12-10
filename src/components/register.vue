@@ -63,9 +63,6 @@ export default {
     LoginBut,
   },
   methods: {
-    // successTpt(contnet) {
-    //   console.log(contnet);
-    // },
     async registerSubmit() {
       let rulg = /^.{6,16}$/;
       if (
