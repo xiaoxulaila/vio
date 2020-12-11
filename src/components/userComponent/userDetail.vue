@@ -91,7 +91,7 @@ export default {
       font-weight: 400;
     }
     p {
-      margin: 2.778vw 0;
+      margin: 2.778vw 0 0 0;
       padding: 0;
       color: #aaa;
     }
