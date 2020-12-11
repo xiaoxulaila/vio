@@ -17,12 +17,7 @@ export default {
   components: { navber, UserDetail },
   methods: {
     async UserinfoData() {
-      const res = await this.$http.get(
-        "/user/" + localStorage.getItem("id")
-        // headers: {
-        //   Authorization: "Bearer " + localStorage.getItem("token"),
-        // },
-      );
+      const res = await this.$http.get("/user/" + localStorage.getItem("id"));
       this.model = res.data[0];
     },
   },
