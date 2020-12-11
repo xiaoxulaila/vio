@@ -2,14 +2,33 @@
   <div id="userinfo">
     <navber />
     <div id="banner"><img src="./../assets/bannerTop_new.png" alt="" /></div>
-    <user-detail> </user-detail>
+    <user-detail :userInfo="model"> </user-detail>
   </div>
 </template>
 <script>
 import navber from "./common/navber.vue";
 import UserDetail from "./userComponent/userDetail.vue";
 export default {
+  data() {
+    return {
+      model: {},
+    };
+  },
   components: { navber, UserDetail },
+  methods: {
+    async UserinfoData() {
+      const res = await this.$http.get(
+        "/user/" + localStorage.getItem("id")
+        // headers: {
+        //   Authorization: "Bearer " + localStorage.getItem("token"),
+        // },
+      );
+      this.model = res.data[0];
+    },
+  },
+  created() {
+    this.UserinfoData();
+  },
 };
 </script>
 <style lang="less">

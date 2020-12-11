@@ -1,11 +1,7 @@
 <template>
   <div id="register">
     <login-top middleTop="注册vio">
-      <div
-        class="loginReturn"
-        @click="$router.push('/login')"
-        slot="loginReturn"
-      >
+      <div class="loginReturn" @click="$router.push('/login')" slot="loginReturn">
         返回登录
       </div>
     </login-top>
@@ -73,6 +69,8 @@ export default {
         const res = await this.$http.post("/register", this.model);
         let resMsg = res.data.msg;
         let resCode = res.data.code;
+        localStorage.getItem("id", res.data.id);
+        localStorage.getItem("token", res.data.objtoken);
         if (resCode == 200) {
           this.$msg.success(resMsg);
           // const _that = this;
