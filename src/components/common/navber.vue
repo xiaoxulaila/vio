@@ -1,6 +1,6 @@
 <template>
   <div id="navber">
-    <div><img src="../../assets/logo.png" alt="" /></div>
+    <div><img src="../../assets/logo.png" alt="" @click="$router.push('/Home')" /></div>
     <div>
       <p>
         <van-icon class="van-icon" name="search" />
@@ -8,7 +8,7 @@
       </p>
     </div>
     <div>
-      <img src="../../assets/default_img.jpg" alt="" />
+      <img :src="imgUrl" alt="" @click="$router.push('/userinfo')" />
       <div>
         <p>下载APP</p>
       </div>
@@ -16,7 +16,19 @@
   </div>
 </template>
 <script>
-export default {};
+export default {
+  name: "navber",
+  data() {
+    return {
+      model: "",
+      imgUrl: "",
+    };
+  },
+  async mounted() {
+    const res = await this.$http.get("/user/" + localStorage.getItem("id"));
+    this.imgUrl = res.data[0].user_img;
+  },
+};
 </script>
 <style lang="less">
 #navber {
@@ -48,7 +60,7 @@ export default {};
         color: #aaa;
         font-size: 4vw;
       }
-      span{
+      span {
         font-size: 3.5vw;
         position: absolute;
         color: #aaa;

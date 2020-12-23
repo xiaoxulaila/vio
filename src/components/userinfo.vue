@@ -1,7 +1,9 @@
 <template>
   <div id="userinfo">
     <navber />
-    <div id="banner"><img src="./../assets/bannerTop_new.png" alt="" /></div>
+    <div id="banner">
+      <img src="./../assets/bannerTop_new.png" alt="" />
+    </div>
     <user-detail :userInfo="model"> </user-detail>
     <user-article />
   </div>
@@ -23,7 +25,7 @@ export default {
       this.model = res.data[0];
     },
   },
-  created() {
+  created() { 
     this.UserinfoData();
   },
 };

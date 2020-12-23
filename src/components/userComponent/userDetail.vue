@@ -28,9 +28,6 @@
 <script>
 export default {
   props: ["userInfo"],
-  created() {
-    console.log(this.userInfo);
-  },
 };
 </script>
 <style lang="less">
@@ -40,14 +37,16 @@ export default {
   #userDetailTop {
     display: flex;
     .user_img {
-      height: 85px;
-      width: 85px;
+      height: 100px;
+      width: 100px;
       border-radius: 50%;
       overflow: hidden;
       position: relative;
       top: -10px;
+      margin-right: 40px;
       img {
-        width: 100%;
+        width: auto;
+        height: 100%;
       }
     }
     .user_edit {

@@ -6,12 +6,13 @@ import register from './components/register.vue'
 import login from './components/login.vue'
 import userinfo from './components/userinfo.vue'
 import edit from './components/edit.vue'
+import Home from './components/Home.vue'
 
 Vue.use(Router)
 const router = new Router({
     routes: [{
-            path: '',
-            redirect: "register"
+            path: '/',
+            redirect: "Home"
         },
         {
             path: '/register',
@@ -20,6 +21,10 @@ const router = new Router({
         {
             path: '/login',
             component: login
+        },
+        {
+            path: '/Home',
+            component: Home
         },
         {
             path: '/userinfo',
