@@ -1,70 +1,28 @@
 <template>
-  <div>
-    <navber />
-    <van-tabs v-model="active" scrollspy sticky>
-      <!-- key是一个优化for循环性能 -->
-      <van-tab v-for="(item, index) in category" :key="index" :title="item.title">
-        内容{{ index }}
-      </van-tab>
-    </van-tabs>
+  <div id="home">
+    <h1>欢迎光临！</h1>
+    <h6><a href="https://juejin.cn/user/1688472903498189/posts">掘金链接</a></h6>
+    <h6><a href="https://blog.csdn.net/weixin_48998573?type=blog">CSND链接</a></h6>
+    <h6><a href="https://www.cnblogs.com/naitang/">博客园链接</a></h6>
+    <h6>微信小程序：《农民工前端》</h6>
+    <h6></h6>
+    <h6></h6>
   </div>
 </template>
 <script>
-import navber from "./common/navber.vue";
-export default {
-  data() {
-    return {
-      category: [],
-      active: 0,
-    };
-  },
-  components: {
-    navber,
-  },
-  methods: {
-    async selectCategary() {
-      const res = await this.$http.get("/category");
-      this.changecategory(res.data);
-    },
-    // 下拉刷新
-    // 改变category数据
-    changecategory(data) {
-      // map在已有的后端数据进行改造
-      const category1 = data.map((item, index) => {
-        console.log(index);
-        item.list = [];
-        item.page = 0;
-        item.pagesize = 10;
-        return item;
-      });
-      this.category = category1;
-    },
-    // 获取文章的数据
-    async selectArticle() {
-      const categoryitem = this.categoryitem();
-      const res = await this.$http.get("/detail/" + categoryitem._id, {
-        params: {
-          page: categoryitem.page,
-          pagesize: categoryitem.pagesize,
-        },
-      });
-      console.log(res);
-    },
-    // 获取文章id
-    categoryItem() {
-      const categoryitem = this.category[this.active];
-      return categoryitem;
-    },
-  },
-  watch: {
-    // 监听下标点击
-    active() {
-      this.selectArticle();
-    },
-  },
-  created() {
-    this.selectCategary();
-  },
-};
 </script>
-<style lang="less"></style>
+<style lang="less">
+#home{
+  width: 50%;
+  height: 50vh;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px #ccc;
+  transform:translate(-50%,-50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  padding: 20px;
+  overflow: auto;
+}
+</style>
